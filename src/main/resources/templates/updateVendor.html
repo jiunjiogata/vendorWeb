@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Create Vendor</title>
+</head>
+<body>
+<form action="saveVendor" method="post">
+<pre>
+Id: <input type="text" name="id" th:value="${vendor.id}" readonly/>
+Code: <input type="text" name="code" th:value="${vendor.code}"/>
+Name: <input type="text" name="name" th:value="${vendor.name}"/>
+<!-- Type: Urban <input type="radio" name="type" value="URBAN" ${vendor.type=='URBAN'?'checked':''}/>  -->
+<!--       Rural <input type="radio" name="type" value="RURAL"${vendor.type=='URBAN'?'checked':''}/>  -->
+Type: <select name="type" >
+<!-- Type: <select th:field="*{type}"> -->
+          <option ${vendor.type=='Regular'?'selected':''}>Regular</option>
+          <option ${vendor.type=='Contract'?'selected':''}>Contract</option>
+      </select>          
+
+Email: <input type="text" name="email" th:value="${vendor.email}"/>
+Phone: <input type="text" name="phone" th:value="${vendor.phone}"/>
+<!-- Address: <input type="text" name="address" value="${vendor.address}"/> -->
+Address: <textarea rows="4" cols="50" name="address">${vendor.address}</textarea> 		 
+      
+		 <input type="submit" value="save"/>
+</pre>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h2>Vendors</h2>
+    <table>
+	    <tr>
+	        <th>id</th>
+	        <th>code</th>
+	        <th>name</th>
+	        <th>type</th>
+	        <th>address</th>
+	        <th>email</th>
+	        <th>phone</th>
+	    </tr>
+<!-- 	    <c:forEach items="${vendors}" var="vendor"> -->
+<!-- 			<tr> -->
+        	<tr th:each="vendor:${vendors}">
+<!-- 		        <td>${vendor.id}</td> -->
+				<td th:text="${vendor.id}"></td>
+<!-- 		        <td>${vendor.code}</td> -->
+				<td th:text="${vendor.code}"></td>
+<!-- 		        <td>${vendor.name}</td> -->
+				<td th:text="${vendor.name}"></td>
+<!-- 		        <td>${vendor.type}</td> -->
+				<td th:text="${vendor.type}"></td>
+<!-- 				<td>${vendor.address}</td> -->
+				<td th:text="${vendor.address}"></td>
+<!-- 		        <td>${vendor.email}</td> -->
+				<td th:text="${vendor.email}"></td>
+<!-- 		        <td>${vendor.phone}</td>         -->
+				<td th:text="${vendor.phone}"></td>
+
+				<td><a th:href="@{'deleteVendor?id='+${vendor.id}}">delete</a></td>
+			    <td><a th:href="@{'showUpdateVendor?id='+${vendor.id}}">edit</a></td>
+			</tr>
+<!--     	</c:forEach> -->
+    </table>
+    <a href="showCreateVendor">Add Vendor</a>
+</body>
+</html>
